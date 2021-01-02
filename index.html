@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="title" content="Bob &amp; Jeff Co. &vert; Comics"/>
+<meta name="description" content="Bob &amp; Jeff Co., also called BobJeffCo, is a comic company by kids! We make and sell 100&percnt; original comics and more!"/>
+<meta name="author" content="Rowan C"/>
+<meta name="author" content="Fionna R"/>
+<meta name="author" content="Ayden V"/>
+<meta name="author" content="Corbett W-S"/>
+<meta name="author" content="Galen M"/>
+<meta name="author" content="Michael J"/>
+<meta name="author" content="Theo D"/>
+<!-- William, come back! (´ 。＿。｀) -->
+<link rel="shortcut icon" href="https://drive.google.com/uc?export=download&id=1xm61iXvTVGaAH6ezLBJ2POxC47C6ubiP"/>
+<link rel="apple-touch-icon" href="https://drive.google.com/uc?export=download&id=1xm61iXvTVGaAH6ezLBJ2POxC47C6ubiP"/>
+<link rel="img_src" href="https://drive.google.com/uc?export=download&id=1xm61iXvTVGaAH6ezLBJ2POxC47C6ubiP"/>
+<link rel="icon" type="image/jpg" href="https://drive.google.com/uc?export=download&id=1xm61iXvTVGaAH6ezLBJ2POxC47C6ubiP"/>
+<title>Bob &amp; Jeff Co.</title>
+<!--
+ * o(*●ω●*)ブ Hi!
+ * We are BobJeffCo!
+ * Welcome to the code!
+ * Why are you here!
+----------------------------------------------------------------------------------------------------------------------------
+ * © Bob & Jeff Co.
+ * © Google LLC
+ * © Fonticons Inc.
+ * © Twitter & Bootstrap authors
+ * Made with 💖
+ * A Note: Rowan C is awesome and coded all of this.
+ * ( ﾟ ω ﾟ)つ Bye!
+-->
+<link rel="stylesheet" href="main.css"/>
+
+<!--Bootstrap + jQuery-->
+<link rel="stylesheet" href="https://rowanfrombjc.github.io/bjc-site/bootstrap/bootstrap.min.css"/>
+<script src="https://rowanfrombjc.github.io/bjc-site/bootstrap/bootstrap.min.js"></script>
+<script src="https://rowanfrombjc.github.io/bjc-site/bootstrap/jQuery.min.js"></script>
+
+<!--Font awesome-->
+<script src="https://kit.fontawesome.com/860d6ff1db.js"></script>
+
+<!--GTag-->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[3], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T5JD4WQ');
+</script>
+
+<script type="text/javascript">
+window.addEventListener("load", function () {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+});
+</script>
+
+<style>
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader > img { width: 100px; }
+.loader.hidden {
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+</style>
+
+<div class="loader">
+    <img src="https://drive.google.com/uc?export=download&id=1VaK6uzzZZLC9zCdZZh0VFtpmezhuftHI" alt="Loading..." />
+</div>
+
+<script>
+
+</script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5JD4WQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><h1>Your browser is preventing us from using javascript. Please turn it on.</h1></noscript>
+<div class="upper-nav-bar">
+<div class="row">
+<div class="col-md-1">
+	<button class="sign-up" onclick="openCss()" id="signUpClose"><span id="signUpBtnTxt">Sign Up</span></button>
+</div>
+</div>
+</div>
+<div id="signUp">
+<div class="email-container">
+	<!--https://www.glyphicons.com/ 👍-->
+	<span for="email" class="glyphicon glyphicon-envelope email-placeholder"></span>
+	<input type="text" name="email" id="email" class="email" title="" placeholder="Email" required />
+</div>
+<div class="password-container">
+	<i class="fas fa-key password-placeholder" for="password"></i>
+	<input type="password" placeholder="Password" id="password" title="" required />
+</div>
+<div id="messageSignUp">
+</div>
+<button type="submit" onclick="signUp()" id="signUpBtn">Sign Up</button>
+<button type="submit" onclick="signIn()" id="signIn">Sign In</button>
+<button type="submit" onclick="signOut()" id="signOut">Sign Out</button>
+<div class="google-sign-in" onclick="this.style.boxShadow = 'none'; signInGoogle();" onmouseout="boxShadowGSign()">
+<i class="fab fa-google google-icon-class"></i><span class="google-text-class">	Sign in with Google</span>
+</div>
+<div class="github-sign-in" onclick="this.style.boxShadow = 'none'; signInGithub();" onmouseout="boxShadowGiSign()">
+<i class="fab fa-github github-icon-class"></i><span class="github-text-class">	Sign in with Github</span>
+</div>
+</div>
+<div class="jumbotron bjc-header" style="position:absolute;">
+	<a href="#" class="bjc-title-link"><h1 class="bjc-title"><b>Bob &amp; Jeff Co.<b></h1></a>
+</div>
+
+<!--Firebase-->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<!--https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+<script src="main.js"></script>
+<!--
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+-->
+</body>
+<!--TL;DR-->
+</html>
