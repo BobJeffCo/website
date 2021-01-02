@@ -1,0 +1,179 @@
+/*
+ * o(*●ω●*)ブ Hi!
+ * We are BobJeffCo!
+ * Welcome to the code!
+ * Why are you here!
+----------------------------------------------------------------------------------------------------------------------------
+ * © Bob & Jeff Co.
+ * © Google LLC
+ * © Fonticons Inc.
+ * © Twitter & Bootstrap authors
+ * Made with 💖
+ * A Note: Rowan C is awesome and coded all of this.
+ * ( ﾟ ω ﾟ)つ Bye!
+ */
+ 
+body
+{
+	max-width: 100%;
+	overflow-x: hidden;
+}
+.bjc-title-link
+{
+	color: black;
+	position: relative;
+	left: 30px;
+}
+.bjc-title-link:hover
+{
+	color: black;
+	text-decoration: none;
+}
+.bjc-title { font-family: "Comic Sans MS", cursive, sans-serif; }
+.bjc-title-link.bjc-title
+{
+	text-decoration: none;
+	position: absolute;
+	margin: auto;
+}
+
+.upper-nav-bar
+{
+	position: fixed;
+	z-index: 97;
+	background-color: white;
+}
+.sign-up
+{
+	background-image: linear-gradient(to bottom right, CornflowerBlue, Cyan);
+	opacity: 1 !IMPORTANT;
+	border: none;
+	margin: 5px;
+	width: 80px;
+	height: 30px;
+	outline: none;
+	border-radius: 10px;
+}
+.sign-up:focus { outline: 0 !IMPORTANT; }
+#signUp
+{
+    width: 0px;
+    height: 0px;
+	display: none;
+	z-index: 96;
+    background-image: linear-gradient(to bottom right, white, azure);
+	position: absolute;
+    -webkit-transition: width 1s, height 1s;
+    -moz-transition: width 1s, height 1s;
+    transition: width 1s, height 1s;
+}
+#email
+{
+	width: 80%;
+	height: 40px;
+	margin: 8px 0;
+	margin-top: 55px;
+	font-size: 25px;
+	border: none;
+	outline: 0 !IMPORTANT;
+	background-color: GreenYellow;
+}
+#email:focus
+{
+	border-bottom: 2px solid black;
+	outline: 0 !IMPORTANT;
+}
+.email-placeholder { font-size: 30px; }
+#password
+{
+	width: 80%;
+	height: 40px;
+	margin: 8px 0;
+	margin-top: 10px;
+	font-size: 25px;
+	border: none;
+	outline: 0 !IMPORTANT;
+	background-color: GreenYellow;
+}
+#password:focus
+{
+	border-bottom: 2px solid black;
+	outline: 0 !IMPORTANT;
+}
+.password-placeholder { font-size: 30px; }
+#messageSignUp
+{
+	margin-top: 25px;
+	margin-left: 25px;
+}
+.google-sign-in
+{
+	box-shadow: 1px 1px 0px #999,
+				2px 2px 0px #999,
+                3px 3px 0px #999,
+                4px 4px 0px #999,
+                5px 5px 0px #999,
+                6px 6px 0px #999;
+	width: 50%;
+	height: 40px;
+	margin-left: 20px;
+	margin-top: 15px;
+	background-color: Gainsboro;
+	cursor: pointer;
+	transition: 1s;
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+}
+.google-icon-class
+{
+	font-size: 20px;
+	margin-top: 9px;
+	margin-left: 5px;
+	margin-right: 3px;
+}
+.google-text-class
+{
+	margin-top: 4px;
+}
+.github-sign-in
+{
+	box-shadow: 1px 1px 0px #999,
+				2px 2px 0px #999,
+                3px 3px 0px #999,
+                4px 4px 0px #999,
+                5px 5px 0px #999,
+                6px 6px 0px #999;
+	width: 50%;
+	height: 40px;
+	margin-left: 20px;
+	margin-top: 15px;
+	background-color: Gainsboro;
+	cursor: pointer;
+	transition: 1s;
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+}
+.github-icon-class
+{
+	font-size: 20px;
+	margin-top: 9px;
+	margin-left: 5px;
+	margin-right: 3px;
+}
+.github-text-class
+{
+	margin-top: 4px;
+}
+
+.bjc-header
+{
+	width: 90%;
+	border-radius: 6px;
+	position: absolute;
+	top: 30px;
+	left: 5%;
+}
