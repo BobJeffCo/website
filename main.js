@@ -13,6 +13,11 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const google = new firebase.auth.GoogleAuthProvider();
 const github = new firebase.auth.GithubAuthProvider();
+const database = firebase.database();
+var user;
+if (Cookies.get('uid') != null) {
+	
+}
 /*
  * o(*●ω●*)ブ Hi!
  * We are BobJeffCo!
@@ -32,16 +37,17 @@ function signUp() {
 	firebase.auth().createUserWithEmailAndPassword(document.getElementById('email').value, document.getElementById('password').value)
 		.then((user) => {
 			msgSignUp('Signed Up!', false);
+			signedUp('up');
 		})
 		.catch((error) => {
 			msgSignUp('Error ' + error.code + ' ' + error.message, true)
 		});
-	firebase.analytics().logEvent('signedUp', { name: 'signedUp'});
 }
 function signIn() {// 🅱
 	firebase.auth().signInWithEmailAndPassword(document.getElementById('email').value, document.getElementById('password').value)
 		.then((user) => {
 			msgSignUp('Signed In!', false);
+			signedUp('up');
 		})
 		.catch((error) => {
 			msgSignUp('Error ' + error.code + ' ' + error.message, true);
@@ -50,6 +56,7 @@ function signIn() {// 🅱
 function signOut() {
 	firebase.auth().signOut();
 	msgSignUp('Signed Out', false);
+	signedUp('out');
 }
 function boxShadowGSign() {
 	document.querySelector('.google-sign-in').style.boxShadow = `1px 1px 0px #999,
@@ -78,15 +85,17 @@ function boxShadowGiSign() {
 function signInGoogle() {
 	firebase.auth().signInWithPopup(google).then((result) => {
 		msgSignUp('Signed In!', false);
+		signedUp('up');
 	}).catch((error) => {
-		msgSignUp(`Error ${error.code} ${error.email} ${error.credential} ${error.message}`, true);
+		msgSignUp(`Error ${error.code} ${error.message}`, true);
 	});
 }
 function signInGithub() {
 	firebase.auth().signInWithPopup(github).then((result) => {
 		msgSignUp('Signed Up!', false);
+		signedUp('up');
 	}).catch((error) => {
-		msgSignUp(`Error ${error.code} ${error.email} ${error.credential} ${error.message}`, true);
+		msgSignUp(`Error ${error.code} ${error.message}`, true);
 	});
 }
 
@@ -115,9 +124,9 @@ function msgSignUp(msg, err) {
 	msgArea.style.width = window.outerHeight;
 	if (err) {
 		msgArea.style.backgroundColor = 'Crimson';
-		msgArea.innerHTML = '<span class="fas fa-skull-crossbones"></span><span style="color:yellow;">' + '	' + msg + '</span>';
+		msgArea.innerHTML = '<div class="alert alert-danger"><span class="fas fa-skull-crossbones"></span><span style="color:crimson;">' + '	' + msg + '</span></div>';
 	} else {
-		msgArea.innerHTML = '<span style="color:LawnGreen; font-size:20px;">' + msg + '</span>';
+		msgArea.innerHTML = '<div class="alert alert-success"><span style="color:Green; font-size:20px;">' + msg + '</span></div>';
 	}
 	var time = 0;
 	for (var i = 0; i < msg.length; i++) {
@@ -131,3 +140,77 @@ function msgSignUp(msg, err) {
 		msgArea.style.height = 'auto'
 	}, time);
 }
+
+var slideIndex = 1;
+showSlides(slideIndex);
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName('slides');
+  var dots = document.getElementsByClassName('dot');
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(' activeS', '');
+  }
+  slides[slideIndex-1].style.display = 'block';
+  dots[slideIndex-1].className += ' activeS';
+}
+
+function signedUp(data) {
+	if (data == 'up') {
+		var user = firebase.auth().currentUser;
+		var email, uid;
+		if (user != null) {
+			var email = user.email;
+			var uid = user.uid;
+			var username;
+			if (Math.floor(Math.random() * Math.floor(2)) == 0) {
+				var username = 'Bob'
+			} else {
+				var username = 'Jeff'
+			}
+			Cookies.set('email', email);
+			Cookies.set('uid', uid);
+			Cookies.set('password', password);
+			Cookies.set('state', true);
+			database.ref("users/" + uid).once("value", snapshot => {
+				if (snapshot.exists()){
+					database.ref('users/' + uid).once('value').then((snapshot) => {
+						var username = (snapshot.val().username);
+						makeUserPanel(username, snapshot.val().email, shapshot.val().pfp, uid);
+					});
+				} else {
+					writeUserData(uid, username, email, '<i class="fas fa-user-alt"></i>', password)
+				}
+			});
+		}
+	} else {
+		Cookies.set('state', null);
+		Cookies.set('email', null);
+		Cookies.set('password', null);
+		Cookies.set('uid', null);
+	}
+}
+function writeUserData(userId, name, email, fa, pass) {
+  database.ref('users/' + userId).set({
+    username: name,
+    email: email,
+	pass: pass,
+	pfp: fa
+  });
+}
+function makeUserPanel(uid, username, email, pfp, uid) {
+	var userSect = document.querySelector('.sign-up-btn-user-div');
+	userSect.innerHTML = '';
+	userSect.innerHTML = pfp;
+}
+//TL;DR
