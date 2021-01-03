@@ -17,12 +17,13 @@ body
 {
 	max-width: 100%;
 	overflow-x: hidden;
+	background-image: linear-gradient(to right, GhostWhite, White);
 }
 .bjc-title-link
 {
 	color: black;
 	position: relative;
-	left: 30px;
+	left: 30%;
 }
 .bjc-title-link:hover
 {
@@ -72,10 +73,12 @@ body
 	width: 80%;
 	height: 40px;
 	margin: 8px 0;
-	margin-top: 55px;
+	margin-top: 100px;
 	font-size: 25px;
 	border: none;
 	outline: 0 !IMPORTANT;
+	visibility: visible;
+	display: inline-flex;
 	background-color: GreenYellow;
 }
 #email:focus
@@ -83,7 +86,12 @@ body
 	border-bottom: 2px solid black;
 	outline: 0 !IMPORTANT;
 }
-.email-placeholder { font-size: 30px; }
+.email-placeholder
+{
+	font-size: 30px;
+	visibility: visible;
+	display: inline-flex;
+}
 #password
 {
 	width: 80%;
@@ -177,3 +185,275 @@ body
 	top: 30px;
 	left: 5%;
 }
+
+.bottom-section-info
+{
+	position: absolute;
+	top: 1000px;
+	left: 1px;
+	width: 100%;
+	height: 300px;
+	background-color: black;
+}
+.fa-discord { color: CornflowerBlue; }
+.discord-box
+{
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+  perspective: 1000px;
+  margin-top: 7px;
+  cursor: pointer;
+}
+.discord-box-inner
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.discord-box:hover .discord-box-inner
+{
+  transform: rotateY(180deg);
+}
+.discord-box-front, .discord-box-back
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.discord-box-front
+{
+  background-color: black;
+  color: black;
+}
+.discord-box-back
+{
+  background-color: black;
+  color: black;
+  transform: rotateY(180deg);
+}
+
+.question-box
+{
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+  perspective: 1000px;
+  margin-top: 7px;
+  cursor: pointer;
+}
+.question-box-inner
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.question-box:hover .question-box-inner
+{
+  transform: rotateY(180deg);
+}
+.question-box-front, .question-box-back
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.question-box-front
+{
+  background-color: black;
+  color: black;
+}
+.question-box-back
+{
+  background-color: black;
+  color: black;
+  transform: rotateY(180deg);
+}
+.github-box
+{
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+  perspective: 1000px;
+  margin-top: 7px;
+  cursor: pointer;
+}
+.github-box-inner
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.github-box:hover .github-box-inner
+{
+  transform: rotateY(180deg);
+}
+.github-box-front, .github-box-back
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.github-box-front
+{
+  background-color: black;
+  color: black;
+}
+.github-box-back
+{
+  background-color: black;
+  color: black;
+  transform: rotateY(180deg);
+}
+.scratch-box
+{
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+  perspective: 1000px;
+  margin-top: 7px;
+  cursor: pointer;
+}
+.scratch-box-inner
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.scratch-box:hover .scratch-box-inner
+{
+  transform: rotateY(180deg);
+}
+.scratch-box-front, .scratch-box-back
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.scratch-box-front
+{
+  background-color: black;
+  color: black;
+}
+.scratch-box-back
+{
+  background-color: black;
+  color: black;
+  transform: rotateY(180deg);
+}
+.discord-box, .question-box, .github-box, .scratch-box { display: inline-block; }
+
+*
+{
+	box-sizing:border-box;
+}
+.slideshow-container
+{
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  top: 300px;
+}
+.slides
+{
+  display: none;
+}
+.prev, .next
+{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next
+{
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover
+{
+  background-color: rgba(0,0,0,0.8);
+}
+.text
+{
+  color: DimGrey;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+.numbertext
+{
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+.dot
+{
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.activeS, .dot:hover
+{
+  background-color: #717171;
+}
+.fadeS
+{
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fadeS
+{
+  from {opacity: .4}
+  to {opacity: 1}
+}
+@keyframes fadeS
+{
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.terms-privacy
+{
+	display: block;
+}
+/*TL;DR*/
