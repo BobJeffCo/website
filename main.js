@@ -10,6 +10,7 @@ const firebaseConfig = {
   measurementId: "G-DKRY422D24"
 }
 firebase.initializeApp(firebaseConfig);
+const perf = firebase.performance();
 firebase.analytics();
 const google = new firebase.auth.GoogleAuthProvider();
 const github = new firebase.auth.GithubAuthProvider();
@@ -18,6 +19,54 @@ var user;
 if (Cookies.get('uid') != null) {
 	
 }
+
+Math.getRandom=(min,max)=>{return Math.random()*(max-min)+min;}
+Math.randomArrayElement=(array)=>{return array[Math.floor(Math.random()*array.length)];}
+
+var clones = [];
+var backgroundPossibilities = ['https://bobjeffco.github.io/ring/painterbob.png', 'https://bobjeffco.github.io/ring/shakespear.png', 'https://bobjeffco.github.io/ring/SHE-JEFF.png', 'https://bobjeffco.github.io/ring/bobpog.png', 'https://bobjeffco.github.io/ring/bobscream.png', 'https://bobjeffco.github.io/ring/chefbob.png', 'https://bobjeffco.github.io/ring/superbob.png'];
+
+function run(mode) {
+	if (mode) {
+		run(false);
+		setTimeout(() => {
+			run(true);
+		}, 1000);
+	} else {
+		var img = document.createElement('img');
+		img.src = Math.randomArrayElement(backgroundPossibilities);
+		img.width = 100;
+		img.style = `position:absolute; top:${Math.getRandom(10, window.innerHeight)}px; left:${Math.getRandom(10, window.innerWidth)}px;`;
+		img.className = `clone`;
+		clones.push(img);
+		document.getElementById('bg').appendChild(img);
+		setTimeout(() => {
+			document.getElementById('bg').removeChild(img);
+		}, 15000);
+	}
+}
+
+run(true);
+
+function urlCHECK() {
+	if (window.location.href != 'https://bobjeffco-4ab29.web.app') {
+		if (window.location.href.includes('file://')) {
+			return null;
+		} else {
+			window.location.href = 'https://bobjeffco-4ab29.web.app';
+		}
+	}
+}
+urlCHECK();
+perfMetrics.onFirstInputDelay((delay, evt) => {
+  ga('send', 'event', {
+    eventCategory: 'Perf Metrics',
+    eventAction: 'first-input-delay',
+    eventLabel: evt.type,
+    eventValue: Math.round(delay),
+    nonInteraction: true,
+  });
+});
 /*
  * o(*●ω●*)ブ Hi!
  * We are BobJeffCo!
@@ -29,7 +78,6 @@ if (Cookies.get('uid') != null) {
  * © Fonticons Inc.
  * © Twitter & Bootstrap authors
  * Made with 💖
- * A Note: Rowan C is awesome and coded all of this.
  * ( ﾟ ω ﾟ)つ Bye!
  */
 
