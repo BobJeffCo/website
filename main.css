@@ -9,7 +9,6 @@
  * © Fonticons Inc.
  * © Twitter & Bootstrap authors
  * Made with 💖
- * A Note: Rowan C is awesome and coded all of this.
  * ( ﾟ ω ﾟ)つ Bye!
  */
  
@@ -17,20 +16,67 @@ body
 {
 	max-width: 100%;
 	overflow-x: hidden;
-	background-image: linear-gradient(to right, GhostWhite, White);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
 }
+
+#bg
+{
+	position: fixed;
+}
+
+.clone
+{
+	z-index: 1;
+	opacity: 0.3;
+	animation: shrinkBackground 15s infinite;
+}
+
+@keyframes shrinkBackground
+{
+	0%
+	{
+		width: 0px;
+		height: 0px;
+	}
+	50%
+	{
+		width: 100px;
+		height: auto;
+	}
+	100%
+	{
+		width: 0px;
+		height: 0px;
+	}
+}
+
+@font-face {
+	font-family: 'Comic Sans MS';
+	src: url("https://bobjeffco.github.io/ring/comic-sans-ms.ttf");
+}
+
 .bjc-title-link
 {
 	color: black;
 	position: relative;
 	left: 30%;
+	user-select: none;
+	cursor: default;
 }
 .bjc-title-link:hover
 {
 	color: black;
 	text-decoration: none;
 }
-.bjc-title { font-family: "Comic Sans MS", cursive, sans-serif; }
+.bjc-title
+{
+	font-family: 'Comic Sans MS';
+	user-select: none;
+	cursor: default;
+}
 .bjc-title-link.bjc-title
 {
 	text-decoration: none;
@@ -38,15 +84,22 @@ body
 	margin: auto;
 }
 
+#container-upper-nav-bar
+{
+	position: absolute;
+	width: 100%;
+}
+
 .upper-nav-bar
 {
-	position: fixed;
+	position: fixed !IMPORTANT;
 	z-index: 97;
 	background-color: white;
+	width: inherit;
 }
 .sign-up
 {
-	background-image: linear-gradient(to bottom right, CornflowerBlue, Cyan);
+	background-image: linear-gradient(to bottom right, CornflowerBlue, Cyan) !IMPORTANT;
 	opacity: 1 !IMPORTANT;
 	border: none;
 	margin: 5px;
@@ -62,11 +115,12 @@ body
     height: 0px;
 	display: none;
 	z-index: 96;
-    background-image: linear-gradient(to bottom right, white, azure);
+    background-color: Azure;
 	position: absolute;
     -webkit-transition: width 1s, height 1s;
     -moz-transition: width 1s, height 1s;
     transition: width 1s, height 1s;
+	margin-left: 15px;
 }
 #email
 {
@@ -134,6 +188,10 @@ body
 	-ms-transition: 1s;
 	-o-transition: 1s;
 }
+.google-sign-in:focus
+{
+	
+}
 .google-icon-class
 {
 	font-size: 20px;
@@ -184,6 +242,7 @@ body
 	position: absolute;
 	top: 30px;
 	left: 5%;
+	margin: 15px;
 }
 
 .bottom-section-info
@@ -191,7 +250,7 @@ body
 	position: absolute;
 	top: 1000px;
 	left: 1px;
-	width: 100%;
+	width: 100vw;
 	height: 300px;
 	background-color: black;
 }
@@ -367,91 +426,7 @@ body
 {
 	box-sizing:border-box;
 }
-.slideshow-container
-{
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-  top: 300px;
-}
-.slides
-{
-  display: none;
-}
-.prev, .next
-{
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-.next
-{
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-.prev:hover, .next:hover
-{
-  background-color: rgba(0,0,0,0.8);
-}
-.text
-{
-  color: DimGrey;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-.numbertext
-{
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-.dot
-{
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-.activeS, .dot:hover
-{
-  background-color: #717171;
-}
-.fadeS
-{
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-@-webkit-keyframes fadeS
-{
-  from {opacity: .4}
-  to {opacity: 1}
-}
-@keyframes fadeS
-{
-  from {opacity: .4}
-  to {opacity: 1}
-}
+
 .terms-privacy
 {
 	display: block;
